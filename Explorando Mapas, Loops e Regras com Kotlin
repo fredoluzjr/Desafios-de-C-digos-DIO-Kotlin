@@ -11,6 +11,7 @@ fun main() {
         'M' to 1000
     )
 
+    val resultado: Int
    // TODO("Criar uma variável mutável para armazenar o $resultado")
     
     for (i in numeroRomano!!.indices) {
@@ -18,6 +19,26 @@ fun main() {
         val atual = numerosRomanos.getValue(numeroRomano[i])
         // Recupera o valor em romano do próximo indice (caso exista).
         val proximo = when (i + 1) {
+            fun whenAssign(obj: Any): Any {
+            	resultado = when (obj) {
+                "I" && ((i + 1) == "V") -> i + 1 && resultado + 4
+                "I" && ((i + 1) == "X") -> i + 1 && resultado + 9
+                "I" -> resultado + 1
+                "V" -> resultado + 5
+                "X" && ((i + 1) == "L") -> i + 1 && resultado + 40
+                "X" && ((i + 1) == "C") -> i + 1 && resultado + 90
+                "X" -> resultado + 10
+                "L" -> resultado + 50
+                "C" && ((i + 1) == "D") -> i + 1 && resultado + 400
+                "C" && ((i + 1) == "D") -> i + 1 && resultado + 900
+                "C" -> resultado + 100
+                "D" -> resultado + 500
+                "M" -> resultado + 1000
+                else -> 0
+            	}
+                return resultado
+            }
+      
             // Caso o próximo indice não exista, atribui 0 à variável $proximo.
             numeroRomano.length -> 0 
             // Caso contrário, atribui o valor em romano equivalente ao próximo indice.

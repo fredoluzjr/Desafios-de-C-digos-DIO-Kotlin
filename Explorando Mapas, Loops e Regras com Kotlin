@@ -1,5 +1,7 @@
 fun main() {
-    val numeroRomano: String? = readLine()
+    //val numeroRomano: String? = readLine()
+    
+    val numeroRomano: String? = "XXX"
     
     val numerosRomanos = mapOf(
         'I' to 1,
@@ -11,15 +13,18 @@ fun main() {
         'M' to 1000
     )
 
-    val resultado: Int
+    var resultado: Int = 0
    // TODO("Criar uma variável mutável para armazenar o $resultado")
     
     for (i in numeroRomano!!.indices) {
         // Recupera o valor em romano do indice atual. 
         val atual = numerosRomanos.getValue(numeroRomano[i])
-        /*fun cases(atual) {
-            "I" -> 1
-            else -> 0
+        /*fun cases(atual: String) {
+            when (atual) {
+                "I" -> 1
+            	else -> 0
+            }
+            
         }*/
                
         // Recupera o valor em romano do próximo indice (caso exista).
@@ -55,9 +60,13 @@ fun main() {
             // Caso contrário, atribui o valor em romano equivalente ao próximo indice.
             else -> numerosRomanos.getValue(numeroRomano[i + 1])
             
-            //atual = resultado + atual
         }
         
+        resultado = resultado + atual
+        //println(atual)
+        //println(proximo)
+        //println(resultado)
+        //println(resultado + atual + proximo)
     	// TODO("Criar as condições necessárias para cálculo do $resultado")
     }
     

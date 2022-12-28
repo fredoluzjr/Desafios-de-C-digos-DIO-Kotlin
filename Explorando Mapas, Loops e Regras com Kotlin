@@ -1,7 +1,7 @@
 fun main() {
     //val numeroRomano: String? = readLine()
     
-    val numeroRomano: String? = "XXX"
+    val numeroRomano: String? = "XV"
     
     val numerosRomanos = mapOf(
         'I' to 1,
@@ -18,43 +18,11 @@ fun main() {
     
     for (i in numeroRomano!!.indices) {
         // Recupera o valor em romano do indice atual. 
-        val atual = numerosRomanos.getValue(numeroRomano[i])
-        /*fun cases(atual: String) {
-            when (atual) {
-                "I" -> 1
-            	else -> 0
-            }
-            
-        }*/
-               
+        var atual = numerosRomanos.getValue(numeroRomano[i])
+                       
         // Recupera o valor em romano do próximo indice (caso exista).
-        val proximo = when (i + 1) {
-            /*val index2 = i + 2
-            
-            fun whenAssign(obj: Any): Any {
-            	val index = when (obj) {
-                    if (index == "I") {
-                        if (index2 == "V") {
-                            return resultado = resultado + 4
-                        }	else if (index2 == "X") {
-                            return resultado = resultado + 9
-                        }	else { resultado = resultado + 1}
-                    }
-                /*"V" -> resultado + 5
-                "X" && ((i + 1) == "L") -> i + 1 && resultado + 40
-                "X" && ((i + 1) == "C") -> i + 1 && resultado + 90
-                "X" -> resultado + 10
-                "L" -> resultado + 50
-                "C" && ((i + 1) == "D") -> i + 1 && resultado + 400
-                "C" && ((i + 1) == "D") -> i + 1 && resultado + 900
-                "C" -> resultado + 100
-                "D" -> resultado + 500
-                "M" -> resultado + 1000
-                else -> 0*/
-            	}
-                return resultado
-            }*/
-      
+        var proximo = when (i + 1) {
+                 
             // Caso o próximo indice não exista, atribui 0 à variável $proximo.
             numeroRomano.length -> 0 
             // Caso contrário, atribui o valor em romano equivalente ao próximo indice.
@@ -62,9 +30,21 @@ fun main() {
             
         }
         
-        resultado = resultado + atual
-        //println(atual)
-        //println(proximo)
+        var result = when (proximo) {
+            
+            5 -> 4
+            10 -> 9
+            50 -> 40
+            100 -> 90
+            500 -> 400
+            1000 -> 900
+            else -> 0
+        }
+        
+        resultado = resultado + result + atual
+        println(atual)
+        println(proximo)
+        println(result)
         //println(resultado)
         //println(resultado + atual + proximo)
     	// TODO("Criar as condições necessárias para cálculo do $resultado")

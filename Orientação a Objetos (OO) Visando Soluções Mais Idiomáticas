@@ -1,5 +1,10 @@
-data class Pais(val habitantes: Double, val taxaCrescimento: Double) {
-    fun crescerPopulacaoAnual() { 
+data class Pais(var habitantes: Double, val taxaCrescimento: Double) {
+    fun crescerPopulacaoAnual(): Double {
+        var result = habitantes + (habitantes * (taxaCrescimento / 100))
+        habitantes = result
+        //println("Pais.habitantes = $habitantes")
+        //println("result = $result")
+        return result
       //  TODO("Criar a lógica de crescimento populacional, usando as propriedades do [Pais]")
     }
 }
@@ -11,7 +16,21 @@ fun main() {
    val paisB = Pais(habitantesPaisB, taxaCrescimento = 1.5)
    
    var quantidadeAnos = 0
+    
+   /*paisA.crescerPopulacaoAnual()
+   paisB.crescerPopulacaoAnual()
+    
+   println(paisA.crescerPopulacaoAnual())
+   println("Pais B = $paisB")*/
+   
    while (paisA.habitantes < paisB.habitantes) {
+       paisA.habitantes = paisA.crescerPopulacaoAnual()
+       paisB.habitantes = paisB.crescerPopulacaoAnual()
+       
+       //println(paisA.habitantes)
+       //println(paisB.habitantes)
+       
+       quantidadeAnos++
     //   TODO("Invocar a função que consolida o crescimento anual de cada [Pais]")
     //  TODO("Garantir de a variável mutável $quantidadeAnos seja atualizada")
    }

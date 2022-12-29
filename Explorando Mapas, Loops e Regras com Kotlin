@@ -1,7 +1,7 @@
 fun main() {
-    //val numeroRomano: String? = readLine()
+    val numeroRomano: String? = readLine()
     
-    val numeroRomano: String? = "MCMXCIX"
+    //val numeroRomano: String? = "MMMCMXCIX"
     
     val numerosRomanos = mapOf(
         'I' to 1,
@@ -17,7 +17,7 @@ fun main() {
    // TODO("Criar uma variável mutável para armazenar o $resultado")
    
     var anterior: Int = 0
-    
+        
     for (i in numeroRomano!!.indices) {
         // Recupera o valor em romano do indice atual. 
         var atual = numerosRomanos.getValue(numeroRomano[i])
@@ -31,7 +31,7 @@ fun main() {
         }
         
         var result: Int = 0
-                
+               
         if (atual == 1) {
             if (proximo == 5) {
                 result = 4
@@ -45,6 +45,8 @@ fun main() {
                 result = 40
             } else if (proximo == 100) {
                 result = 90
+            } else if (anterior == 1) {
+                result = 0
             } else {
                 result = atual
             }
@@ -53,6 +55,8 @@ fun main() {
                 result = 400
             } else if (proximo == 1000) {
                 result = 900
+            } else if (anterior == 10) {
+                result = 0
             } else {
                 result = atual
             }
@@ -74,18 +78,6 @@ fun main() {
             } else {
                 result = 500
             }
-        }  else if (atual == 10) {
-            if (anterior == 1) {
-                result = 0
-            } else {
-                result = 10
-            }
-        } else if (atual == 100) {
-            if (anterior == 10) {
-                result = 0
-            } else {
-                result = 100
-            }
         } else if (atual == 1000) {
             if (anterior == 100) {
                 result = 0
@@ -96,23 +88,15 @@ fun main() {
             result = atual
         }
         
-        println("anterior = $anterior")
+        //println("anterior = $anterior")
         
         anterior = atual
-        
-        /*if ( (atual == 1) && (proximo == 5)) {
-            atual = 4
-        } else if ( (atual == 1) && (proximo == 10)){
-            atual = 9
-        } else {
-            atual = 0
-        }*/
-        
-        println("result = $result")
+                
+        //println("result = $result")
         resultado = resultado + result
-        println("atual = $atual")
+        /*println("atual = $atual")
         println("proximo = $proximo")
-        println("resultado = $resultado")
+        println("resultado = $resultado")*/
     	// TODO("Criar as condições necessárias para cálculo do $resultado")
     }
     
